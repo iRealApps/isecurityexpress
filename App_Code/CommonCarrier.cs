@@ -58,8 +58,8 @@ public class commonCarrier
             //mail.Attachments.Add(attachment);
           
 
-            mail.To.Add("noreply@irealities.com");
-
+            //mail.To.Add("noreply@irealities.com");
+            mail.To.Add("dev.irealities@gmail.com");
 
             //mail.CC.Add("html@iriplco.com");			
             mail.From = new MailAddress("noreply@irealities.com");
@@ -90,8 +90,8 @@ public class commonCarrier
             smtp.Port = 25;
             smtp.UseDefaultCredentials = false;
             smtp.Credentials = new System.Net.NetworkCredential
-                // ("irealities.qa@gmail.com", "Qatest2707@");
-          ("noreply@irealities.com", "iripl@123");
+             ("irealities.qa@gmail.com", "Qatest2707@");
+          //("noreply@irealities.com", "iripl@123");
 
 
             //Or your Smtp Email ID and Password

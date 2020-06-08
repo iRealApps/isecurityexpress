@@ -174,7 +174,130 @@ function resetForm() {
 function popup()
 {
 
-           $('#sentFeedbackSuccess').modal('hide');
+    $('#sentFeedbackSuccess').modal('hide');
 }
 
-//popup();
+function sendEmailIsecurity() {
+    var pagePathName = window.location.pathname;
+    var pageName = pagePathName.substring(pagePathName.lastIndexOf("/") + 1);
+    var icount = 0;
+    if ($("#txtname").val().trim() == "") {
+        icount++;
+        $('#txtname').addClass('has-error');
+        $("#lblName").html("* Please enter your name");
+        $("#lblName").show();
+    } else {
+        $('#txtname').removeClass('has-error');
+        $("#lblName").hide();
+
+    }
+
+    //if ($("#txtcompany").val().trim() == "") {
+    //    icount++;
+    //    $('#txtcompany').addClass('has-error');
+    //    $("#lblcompany").html("* Please enter your name");
+    //    $("#lblcompany").show();
+    // } else {
+    //     $('#txtcompany').removeClass('has-error');
+    //     $("#lblcompany").hide();
+    //
+    // }
+
+    //if ($("#txtMobile").val().trim() == "") {
+    //    icount++;
+    //    $('#txtMobile').addClass('has-error');
+    //    $("#lblmobile").html("* Please enter your name");
+    //    $("#lblmobile").show();
+    // } else {
+    //    $('#txtMobile').removeClass('has-error');
+    //    $("#lblmobile").hide();
+    //    //  check();
+    //}
+
+    if ($("#txtMobile").val().trim() == "") {
+        icount++;
+        $('#txtMobile').addClass('has-error');
+        $("#lblmobile").html("* Please enter your  Mobile Number");
+        $("#lblmobile").show();
+    } else {
+        if ($('#txtMobile').val().length < 10) {
+            icount++;
+            $('#txtMobile').addClass('has-error');
+            $("#lblmobile").html("* Please enter valid  Mobile Number");
+            $("#lblmobile").show();
+        } else {
+            $('#txtMobile').removeClass('has-error');
+            $("#lblmobile").hide();
+        }
+    }
+
+
+    if ($("#txtemail").val().trim() == "") {
+        icount++;
+        $('#txtemail').addClass('has-error');
+        $("#lblemail").html("* Please enter your email id   ");
+        $("#lblemail").show();
+    } else {
+        var e = IsValidEmail($("#txtemail").val());
+        if (!e) {
+            icount++;
+            $('#txtemail').addClass('has-error');
+            $("#lblemail").html("* Please enter valid email id");
+            $("#lblemail").show();
+        } else {
+            $('#txtemail').removeClass('has-error');
+            $("#lblemail").hide();
+        }
+    }
+    if ($("#txtOrg").val().trim() == "") {
+        icount++;
+        $('#txtOrg').addClass('has-error');
+        $("#lblOrg").html("* Please enter your Organisation");
+        $("#lblOrg").show();
+    } else {
+        $('#txtOrg').removeClass('has-error');
+        $("#lblOrg").hide();
+    }
+    if (icount > 0) {
+        return false;
+    } else {
+        var obj = {
+            'name': $("#txtname").val(),
+            'email': $("#txtemail").val(),
+            'message': $("#txtOrg").val(),
+            'sourcePage': pageName
+        };
+        $("#irLoader1").show();
+        $.ajax({
+            type: 'GET',
+            url: "Services/isecurityexpressmail.ashx",
+            contentType: "application/json; charset=utf-8",
+            data: obj,
+            success: function (response) {
+                //$("#irLoader").hide();
+                console.log(response);
+                $("#txtname").val('');
+                $("#txtemail").val('');
+                $("#txtOrg").val('');
+                $("#txtMobile").val('');
+                $("#irLoader1").hide();
+                $("#messageSuccess").html("Thank you for contacting us.<br><br><br>We have received your enquiry and shall get back to you shortly.");
+                // $("#messageShort").html("We have received your enquiry and shall get back to you shortly.");
+                // $('#sentFeedbackSuccess').modal('show');
+                $('.popup1').show();
+            },
+            error: function (response) {
+                // $("#irLoader").hide();
+                $("#txtname").val('');
+                $("#txtemail").val('');
+                $("#txtMobile").val('');
+                $("#txtOrg").val('');
+                $("#irLoader1").hide();
+                $("#messageSuccess").html("Error submitting the form");
+                //  $("#messageShort").html("");
+                // $('#sentFeedbackSuccess').modal('show');
+                $('.popup1').show();
+            }
+        });
+    }
+}

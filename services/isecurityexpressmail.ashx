@@ -1,37 +1,13 @@
-﻿?<%@ WebHandler Language="C#" Class="mail" %>
-
+﻿<%@ WebHandler Language="C#" Class="isecurityexpressmail" %>
 
 using System;
 using System.Web;
-using System.Text;
-using System.Collections;
+using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
-using System.Collections.Generic;
-using System.Web.Security;
-using System.Web.SessionState;
-using System.Diagnostics;
-using System.Net;
-using System.Net.Mail;
-using System.IO;
-using System.Web.Configuration;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.Script.Serialization;
-using System.Text.RegularExpressions;
-using System.Globalization;
-using System.Threading;
-using System.Linq;
-using System.Data.Sql;
-
-
-public class mail : IHttpHandler, System.Web.SessionState.IRequiresSessionState
-{
-
-    public void ProcessRequest(HttpContext context)
-    {
+public class isecurityexpressmail : IHttpHandler {
+    
+    public void ProcessRequest (HttpContext context) {
         string name = context.Request.QueryString["name"].ToString();
         string email = context.Request.QueryString["email"].ToString();
         string message = context.Request.QueryString["message"].ToString();
@@ -43,15 +19,14 @@ public class mail : IHttpHandler, System.Web.SessionState.IRequiresSessionState
         }
         string subject = "Enquiry for iRealities Technology";
        //string to = "isales@iriplco.com";
-        string to = "dev.irealities@gmail.com";
+        string to = "Yatin.kantak@lyncbiz.com,Nimisha@iripco.com,isales@iriplco.com";
         string userId = AddToDatabase(name, email, message, sourcePage);
         common.commonMail(name, email, message, sourcePage, userId, subject, to);        
         
         context.Response.ContentType = "text/plain";
-        context.Response.Write("success");      
+        context.Response.Write("success");    
     }
-
-    public string AddToDatabase(string name, string email, string message, string sourcePage)
+     public string AddToDatabase(string name, string email, string message, string sourcePage)
     {
          try
         {
@@ -59,7 +34,7 @@ public class mail : IHttpHandler, System.Web.SessionState.IRequiresSessionState
             {
                 conn.Open();
                 //insert new section into table only if does not exist
-                using (SqlCommand cmd = new SqlCommand("irealitiesContactUs_Create", conn))
+                using (SqlCommand cmd = new SqlCommand("isecurityexpressContactUs_Create", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@name", name);
@@ -73,21 +48,16 @@ public class mail : IHttpHandler, System.Web.SessionState.IRequiresSessionState
                 }
             }
         }
+
         catch (Exception ex)
         {
             return ex.Message.ToString();
         }
     } 
-    
-    
-    public bool IsReusable
-    {
-        get
-        {
+    public bool IsReusable {
+        get {
             return false;
         }
-    }      
+    }
+
 }
-
-
- 

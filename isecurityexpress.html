@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -21,10 +21,86 @@
     <link rel="stylesheet" href="isecuritycss/style.css">
     <link rel="stylesheet" href="isecuritycss/jquery.fancybox.min.css">
     <link rel="stylesheet" href="isecuritycss/responsive.css">
-
+    <style>
+        .back-card {
+            min-width: 350px;
+            width: 350px;
+            min-height: 250px;
+            margin: 100px auto;
+            background: #292929eb;
+            position: relative;
+            z-index: 899;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px #000;
+            text-align: center;
+            height: 300px;
+            padding: 25px 25px;
+        }
+        .cnt223 {
+            min-width: 300px;
+            width: 300px;
+            min-height: 250px;
+            height: 250px;
+            /* margin: 100px auto; */
+            background: #3333335c;
+            position: relative;
+            z-index: 999;
+            padding: 19px 35px;
+            border-radius: 5px;
+            box-shadow: 0 0px 3px #000;
+            /* text-align: center; */
+        }
+        .irLoader {
+            /* display: none;*/
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: 1;
+            background-color: rgba(51, 51, 51, 0.6);
+            text-align: center;
+        }
+        .popup1 {
+            width: 100%;
+            margin: 0 auto;
+            display: none;
+            position: fixed;
+            z-index: 101;
+        }
+        .popup-content li, p {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 15px;
+            list-style-type: none;
+            font-weight: 100;
+        }
+        .cnt223 a {
+            color: #000;
+            background: #ff6604;
+            padding: 7px 20px;
+            border-radius: 10px;
+        }
+        label {
+            display: inline-block;
+            margin-bottom: .5rem;
+            font-size: 13px;
+            font-weight: 600;
+        }
+    </style>
 </head>
 
 <body class="landing_page">
+    <div class='popup1' id="sentFeedbackSuccess" data-animate="zoomIn" data-animate-delay="400">
+        <div class="back-card">
+            <div class='cnt223'>
+                <div class="container">
+                    <p id="messageSuccess"></p>
+                    <a href='' class='close1 x'>Back to Home<i class="fa fa-home i-home"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="logo_header">
         <div class="container">
             <div class="row">
@@ -43,38 +119,52 @@
 
     <section class="contact_us">
         <div class="container">
-            <div class="col-md-12 text-center d-none">
+            <div class="col-md-12 text-center">
                 <h2>Contact Us</h2>
             </div>
             <form action="/action_page.php">
                 <div class="form_bg">
-                    <div class="row justify-content-center d-none">
+                    <div class="row justify-content-center">
                         <div class="col-md-2">
                             <div class="form-group">
-                                <input type="email" class="form-control" id="name" placeholder="Name*" name="name">
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <input type="org" class="form-control" id="org" placeholder="Organisation*" name="Organisation">
+                                <!--<input type="email" class="form-control" id="name" placeholder="Name*" name="name">-->
+                                <input type="text" class="form-control " placeholder="*Your Name" id="txtname" onkeypress="return onlyAlphabets(event,this);">
+                                <label id='lblName' class='form-error' style='display: none;color:#ff6604;'>* Please enter your email</label>
+                                <p class='help-block text-danger'></p>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
-                                <input type="email" class="form-control" id="email" placeholder="Email*" name="Email">
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-2">
-                             <div class="form-group">
-                                <input type="Phone" class="form-control" id="phone" placeholder="Phone*" name="Phone">
+                                <!--<input type="text" class="form-control" id="org" placeholder="Organisation*" name="Organisation">-->
+                                <input type="text" class="form-control " placeholder="*Your Organisation" id="txtOrg" onkeypress="return onlyAlphabets(event,this);">
+                                <label id='lblOrg' class='form-error' style='display: none;color:#ff6604;'>* Please enter your Organisation</label>
+                                <p class='help-block text-danger'></p>
+
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <button type="submit" class="btn btn-primary submit_btn">Submit</button>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="*Your Email ID" id="txtemail">
+                                <label id='lblemail' class='form-error' style='display: none;color:#ff6604;'>* Please enter your email</label>
+                                <p class='help-block text-danger'></p>
+                            </div>
                         </div>
-                        
-                        
+
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Mobile Number *" maxlength="10" id="txtMobile">
+                                <label id='lblmobile' class='form-error' style='display: none;color:#ff6604;'>* Enter Your Mobile Number  </label>
+                                <p class='help-block text-danger'></p>
+                                <!--<input type="Phone" class="form-control" id="phone" placeholder="Phone*" name="Phone">-->
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" onclick='sendEmailIsecurity();' class="btn btn-primary submit_btn">Submit</button>
+                        </div>
+                        <div class="irLoader" id="irLoader1">
+                            <img src="images/ir-loader.gif" class="irLoaderImg" alt="loader">
+                        </div>
+
                     </div>
                 </div>
 
@@ -184,9 +274,9 @@
                 </p>
 
                 <div class="videos">
-                    <a  data-fancybox href="isecurityimages/video1.mp4">
+                    <a data-fancybox href="isecurityimages/video1.mp4">
                         <img class="card-img-top img-fluid" src="isecurityimages/video1.png" />
-                        
+
                     </a>
                     <!-- <div class="embed-responsive embed-responsive-16by9">
                       <iframe class="embed-responsive-item" src="isecurityimages/video1.mp4" allowfullscreen></iframe>
@@ -197,26 +287,26 @@
                 </div>
 
                 <div class="sample_emailer">
-                   <div class="col-md-12 text-center">
-                       <h2>Sample Emailer</h2>
-                   </div>
-                  <div class="row justify-content-center">
+                    <div class="col-md-12 text-center">
+                        <h2>Sample Emailer</h2>
+                    </div>
+                    <div class="row justify-content-center">
 
-                       <div class="col-md-4 text-center">
-                           <!-- <img src="images/sample_emailer1.png" class="img-fluid"> -->
+                        <div class="col-md-4 text-center">
+                            <!-- <img src="images/sample_emailer1.png" class="img-fluid"> -->
                             <a data-fancybox="" href="isecurityimages/Emailer_1.jpg">
                                 <img class="card-img-top img-fluid" src="isecurityimages/Emailer_1.jpg">
-                            
+
                             </a>
-                       </div>
-                       <div class="col-md-4 text-center">
-                           <!-- <img src="images/sample_emailer2.png" class="img-fluid"> -->
-                           <a data-fancybox="" href="isecurityimages/Emailer_2.jpg">
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <!-- <img src="images/sample_emailer2.png" class="img-fluid"> -->
+                            <a data-fancybox="" href="isecurityimages/Emailer_2.jpg">
                                 <img class="card-img-top img-fluid" src="isecurityimages/Emailer_2.jpg">
-                            
+
                             </a>
-                       </div>
-                   </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -231,22 +321,55 @@
             </div>
         </div>
     </footer>
-    
-    
+
+
 
     <script src="isecurityjs/jquery.min.js"></script>
     <script src="isecurityjs/bootstrap.bundle.min.js"></script>
     <script src="isecurityjs/jquery.fancybox.min.js"></script>
-   
+    <script src="js/sendEmail.js"></script>
 
     <!-- template scripts -->
-    
+
 
     <script type="text/javascript">
-      $('.').matchHeight();
-      $('.cardheight').matchHeight();
+        $('.').matchHeight();
+        $('.cardheight').matchHeight();
     </script>
+    <script>
 
+        $("#irLoader1").hide();
+        function onlyAlphabets(evt) {
+            evt = (evt) ? evt : event;
+            var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
+                ((evt.which) ? evt.which : 0));
+            if (charCode > 31 && (charCode < 65 || charCode > 90) &&
+                (charCode < 97 || charCode > 122)) {
+                return false;
+            }
+            return true;
+        }
+
+        $("#txtMobile").keypress(function (e) {
+            //if the letter is not digit then display error and don't type anything
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                //display error message
+                $("#errmsg").html("Digits Only").show().fadeOut("slow");
+                return false;
+            }
+        });
+        $(function () {
+            var overlay = $('<div id="overlay"></div>');
+            overlay.show();
+            overlay.appendTo(document.body);
+            $('.popup1').hide();
+            $('.close1').click(function () {
+                $('.popup1').hide();
+                overlay.appendTo(document.body).remove();
+                return false;
+            });
+        });
+    </script>
 
 
 
