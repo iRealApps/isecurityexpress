@@ -19,7 +19,7 @@ public class isecurityexpressmail : IHttpHandler {
         }
         string subject = "Enquiry for iRealities Technology";
        //string to = "isales@iriplco.com";
-        string to = "Yatin.kantak@lyncbiz.com,Nimisha@iripco.com,isales@iriplco.com";
+        string to = "noreply@irealities.com,Yatin.kantak@lyncbiz.com,Nimisha@iripco.com,isales@iriplco.com";
         string userId = AddToDatabase(name, email, message, sourcePage);
         common.commonMail(name, email, message, sourcePage, userId, subject, to);        
         

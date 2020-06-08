@@ -23,6 +23,13 @@ a:visited {
 ::selection{
   background-color: #f58220;
 }
+.popup-content li, p {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 15px;
+    list-style-type: none;
+    font-weight: 100;
+}
 .landing_page ul {
   margin: 0px;
 }
@@ -31,8 +38,9 @@ a:visited {
   display: inline-block;
 }
 .landing_page p {
-  font-size: 16px;
+    font-size: 16px;
     font-weight: 600;
+    color: #000000;
 }
 .landing_page h1{
   margin-bottom: 2%;
@@ -183,5 +191,74 @@ footer p {
   margin-bottom: 0px;
   color: #ffffff;
   font-size: 14px !important;
+}
+
+.back-card {
+    min-width: 350px;
+    width: 350px;
+    min-height: 250px;
+    margin: 100px auto;
+    background: #292929eb;
+    position: relative;
+    z-index: 899;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #000;
+    text-align: center;
+    height: 300px;
+    padding: 25px 25px;
+}
+
+.cnt223 {
+    min-width: 300px;
+    width: 300px;
+    min-height: 250px;
+    height: 250px;
+    /* margin: 100px auto; */
+    background: #3333335c;
+    position: relative;
+    z-index: 999;
+    padding: 19px 35px;
+    border-radius: 5px;
+    box-shadow: 0 0px 3px #000;
+    /* text-align: center; */
+}
+
+.irLoader {
+    /* display: none;*/
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    background-color: rgba(51, 51, 51, 0.6);
+    text-align: center;
+}
+
+.popup1 {
+    width: 100%;
+    margin: 0 auto;
+    display: none;
+    position: fixed;
+    z-index: 101;
+}
+
+
+
+.cnt223 a {
+    color: #000;
+    background: #ff6604;
+    padding: 7px 20px;
+    border-radius: 10px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    font-size: 13px;
+    font-weight: 600;
+}
+.back-card p {
+    color: #fff !important;
 }
 

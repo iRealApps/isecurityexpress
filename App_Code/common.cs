@@ -82,7 +82,7 @@ public class common
             MailMessage mail = new MailMessage();
              mail.To.Add(to);
 
-            mail.To.Add("noreply@irealities.com");
+            //mail.To.Add("noreply@irealities.com");
 
 
             ////mail.CC.Add("html@iriplco.com");			
