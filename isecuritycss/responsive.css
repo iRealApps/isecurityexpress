@@ -1,0 +1,65 @@
+
+@media (max-width: 1199px) {
+  
+  
+}
+@media (max-width: 991px) {
+  
+
+  
+}
+@media (max-width: 767px) {
+  .contact_us {
+      background-image: url(../images/contact_bg_responsive.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      padding: 5%;
+      padding-top: 2%;
+  }
+  .water_mark_logo {
+      position: absolute;
+      top: 0px;
+      right: 9px;
+  }
+  .water_mark_logo img {
+    max-width: 100px;
+  }
+  .landing_page .submit_btn {
+      background-color: #f58220;
+      padding: 11px 16px;
+      border-radius: 10px;
+      color: #ffffff;
+      border: 1px solid #f58220;
+      transition: all 0.6s ease-in-out;
+      margin: 0 auto;
+      float: none;
+      display: table;
+      max-width: 200px;
+      width: 1000%;
+  }
+  .bottom_space {
+    margin: 0px;
+  }
+  .courses_deliverable img {
+      max-width: 170px;
+      margin-top: 50px;
+  }
+  .courses_deliverable {
+    padding: 5% 0;
+  }
+  h2{
+    font-size: 1.5rem !important;
+  }
+  .content_sample img {
+    margin-top: 10px;
+  }
+
+}
+
+
+@media (max-width: 575px) {
+  
+  
+}

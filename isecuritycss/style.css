@@ -1,0 +1,187 @@
+body.landing_page {
+  font-family: 'Raleway', sans-serif;
+  color: #0f2c44;
+  font-size: 18px;
+  background-color: #5ec7f8;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  font-weight: 500;
+  overflow-x: hidden;
+  letter-spacing: 0px;
+      font-weight: normal;
+    letter-spacing: 1px;
+}
+
+a:active,
+a:hover,
+a:focus,
+a:visited {
+  text-decoration: none;
+}
+::selection{
+  background-color: #f58220;
+}
+.landing_page ul {
+  margin: 0px;
+}
+.landing_page ul li {
+  list-style: none;
+  display: inline-block;
+}
+.landing_page p {
+  font-size: 16px;
+    font-weight: 600;
+}
+.landing_page h1{
+  margin-bottom: 2%;
+  display: block;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+.landing_page h2 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.landing_page h4 {
+      font-weight: 600;
+}
+.logo_header {
+  background-color: #ffffff;
+  padding: 10px;
+  padding-top: 15px;
+}
+.right_logo img {
+  float: right;
+}
+.landing_banner {
+  position: relative;
+}
+.landing_banner img {
+  width: 100%;
+}
+.landing_page form {
+      margin-bottom: 4%;
+}
+.contact_us {
+    background-image: url(../images/contact_bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding: 5%;
+    padding-top: 2%;
+}
+.landing_page .form-control {
+  display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #0000;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #b7b7b7;
+    border-radius: 0rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.landing_page .submit_btn {
+  background-color: #f58220;
+  padding: 7px 16px;
+  border-radius: 10px;
+  color: #ffffff;
+  border: 1px solid #f58220;
+  transition: all 0.6s ease-in-out;
+}
+.landing_page .submit_btn:hover {
+  background-color: #ffffff;
+  color: #f58220;
+}
+
+.courses_deliverable {
+    background-image: url(../images/course_delivery_bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding: 5%;
+    
+}
+.courses_deliverable h2 {
+  color: #ffffff;
+  border: 3px solid #f58220;
+  margin: 0 auto;
+  float: none;display: table;
+  padding: 10px 40px;
+  
+}
+.courses_deliverable img {
+  max-width: 200px;
+  transition: all 0.6s ease-in-out;
+  
+}
+.courses_deliverable img:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+}
+.courses_deliverable strong {
+  display: block;
+  color: #ffffff;
+  margin-top: 10px;
+  font-size: 20px;
+}
+.course_details {
+  padding: 5% 0;
+  padding-bottom: 0px;
+}
+.bottom_space {
+  margin-bottom: 50px;
+}
+.content_sample {
+  background-image: url(../images/emailer_content_bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding: 5%;
+}
+.videos {
+  max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    display: table;
+    position: relative;
+    -webkit-box-shadow: 0px 3px 26px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 26px -12px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 26px -12px rgba(0,0,0,0.75);
+}
+.water_mark_logo {
+         position: absolute;
+    top: 38px;
+    right: 19px;
+    text-align: right;
+}
+.water_mark_logo img {
+      max-width: 60%;
+    width: 100%
+}
+.sample_emailer {
+  margin-top: 5%;
+}
+footer {
+  background-color: #f58220;
+  padding: 10px;
+}
+footer p {
+  margin-bottom: 0px;
+  color: #ffffff;
+  font-size: 14px !important;
+}
+
